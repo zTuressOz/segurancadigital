@@ -6,7 +6,7 @@ const textoResultado = document.querySelector(".texto-resultado");
 
 const perguntas = [
     {
-        enunciado: "Assim que saiu da escola você se depara com uma nova tecnologia, uma segurança digital que consegue cuidar de todas as suas senhas, ele também e capaz de guardar seus emails e suas senhas mais pessoais em qualquer aplicativo. Qual seu primeiro pensamento sobre?",
+        enunciado: "Assim que saiu da escola você se depara com uma nova tecnologia, uma segurança digital que consegue cuidar de todas as suas senhas, ele também é capaz de guardar seus emails e suas senhas mais pessoais em qualquer aplicativo. Qual seu primeiro pensamento sobre?",
         alternativas: [
             {
                 texto: "Isso é assustador!",
@@ -19,7 +19,7 @@ const perguntas = [
         ]
     },
     {
-        enunciado: "Com a descoberta desta tecnologia, chamada Segurança Digital, uma professora de tecnologia da escola decidiu fazer uma sequência de aulas sobre esta tecnologia. No fim de uma aula ela pede que você escreva um trabalho sobre o uso de IA da segurança digital em sala de aula. Qual atitude você toma?",
+        enunciado: "Com a descoberta desta IA, chamada Segurança Digital, uma professora de tecnologia da escola decidiu fazer uma sequência de aulas sobre este recurso novo. No fim de uma aula ela pede que você escreva um trabalho sobre o uso de IA na segurança digital em sala de aula. Qual atitude você toma?",
         alternativas: [
             {
                 texto: "Utiliza uma de suas contas pessoais para servir como teste para mostrar como eles guardam a senha com segurança.",
