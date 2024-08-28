@@ -10,11 +10,18 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Isso é assustador!",
-                afirmacao: "No início ficou com medo do que essa tecnologia pode fazer. "
+                afirmacao: [
+                    "No início ficou com medo do que essa tecnologia pode fazer." ,
+                    "No começo se sentiu apreensivo sobre deixar dados tão importantes nas mãos de um software."
+                ]
             },
             {
                 texto: "Isso é maravilhoso!",
-                afirmacao: "Quis saber como usar IA no seu dia a dia."
+                afirmacao: [
+                "No início quis saber como usar IA no seu dia a dia.",
+                "No começo ficou fascinado com os serviços que uma IA poderia fazer. "
+            ]
+                
             }
         ]
     },
@@ -23,11 +30,16 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Utiliza uma de suas contas pessoais para servir como teste para mostrar como eles guardam a senha com segurança.",
-                afirmacao: "Conseguiu utilizar a IA de segurança digital para guardar suas senhas."
+                afirmacao: [
+                    "Conseguiu utilizar a IA de segurança digital para guardar suas senhas.",
+                    "Realizou testes para conhecer mais sobre a IA. "
+            ]
             },
             {
                 texto: "Escreve o trabalho com base nas conversas que teve com colegas, algumas pesquisas na internet e conhecimentos próprios sobre o tema.",
-                afirmacao: "Sentiu mais facilidade em utilizar seus próprios recursos para escrever seu trabalho."
+                afirmacao: ["Sentiu mais facilidade em utilizar seus próprios recursos para escrever seu trabalho.",
+                "Achou que fosse melhor procurar informações sobre em outros lugares do que se arriscar em um teste."
+            ]
             }
         ]
     },
@@ -36,11 +48,13 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Defende a ideia de que a IA pode criar novas oportunidades de segurança sobre a internet e melhorar no cuidado com as contas.",
-                afirmacao: "Vem impulsionando a inovação na área Segurança da Internet e luta para abrir novos caminhos com a IA."
+                afirmacao: ["Vem impulsionando a inovação na área Segurança da Internet e luta para abrir novos caminhos com a IA.",
+                "Acredita num futuro técnológico com avanços na área da segurança digital e está certo que a IA irá abrir novos caminhos."]
             },
             {
                 texto: "Me preocupo com as pessoas que poderão perder suas contas para caso essa segurança digital falhe",
-                afirmacao: "Sua preocupação com as pessoas motivou a criar um grupo de estudos entre trabalhadores para discutir meios de utilização de IA de forma ética."
+                afirmacao: ["Sua preocupação com as pessoas motivou a criar um grupo de estudos entre trabalhadores para discutir meios de utilização de IA de forma ética.",
+                "Você não confia na capacidade da IA de nos proteger na internet e acredita que devemos tomar precauções antes de usar esses recursos tão avançados."]
             }
         ]
     },
@@ -49,7 +63,9 @@ const perguntas = [
         alternativas: [
             {
                 texto: "Criar uma conta e tentar entrar nessa conta por um computador diferente.",
-                afirmacao: "Notou também que muitas pessoas não sabem ainda utilizar as ferramentas tradicionais e decidiu compartilhar seus conhecimentos sobre criar email utilizando ferramentas para iniciantes."
+                afirmacao: ["Notou também que muitas pessoas não sabem ainda utilizar as ferramentas tradicionais e decidiu compartilhar seus conhecimentos sobre criar email utilizando ferramentas para iniciantes.",
+                            "Decidiu compartilhar esse conhecimento com as outras pessoas já que é importante espalhar as novas tecnolgias para o mundo"
+            ]
             },
             {
                 texto: "Criar uma conta e tentar entrar nessa conta pelo gmail sem utilizar da senha.",
@@ -97,17 +113,22 @@ function mostraAlternativas(){
     }
 }
 
-function respostaSelecionada(opcaoSelecionada) {
-    const afirmacoes = opcaoSelecionada.afirmacao;
-    historiaFinal += afirmacoes + " ";
-    atual++;
-    mostraPergunta();
+function respostaSelecionada(opcaoSelecionada){
+        const afirmacoes = aleatorio(opcaoSelecionada.afirmacao);
+        historiaFinal += afirmacoes + " ";
+        atual++;
+        mostraPergunta();
 }
 
 function mostraResultado() {
     caixaPerguntas.textContent = "Em 2049...";
     textoResultado.textContent = historiaFinal;
     caixaAlternativas.textContent = "";
+}
+
+function aleatorio(lista){
+    const posicao = Math.floor(Math.random() * lista.length);
+    return lista[posicao];
 }
 
 mostraPergunta();
