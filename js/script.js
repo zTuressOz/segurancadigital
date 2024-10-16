@@ -8,13 +8,13 @@ const caixaResultado = document.querySelector(".caixa-resultado");
 const textoResultado = document.querySelector(".texto-resultado");
 const botaoJogarNovamente = document.querySelector(".novamente-btn");
 const botaoIniciar = document.querySelector(".iniciar-btn");
-const telaInicial = document.querySelector(".iniciar-btn");
+const telaInicial = document.querySelector(".tela-inicial");
 
 let atual = 0;
 let perguntaAtual;
 let historiaFinal = "";
 
-botaoIniciar.addEventListener('click',iniciaJogo);
+botaoIniciar.addEventListener('click', iniciaJogo);
 
 function iniciaJogo() {
     atual = 0;
@@ -37,7 +37,6 @@ function mostraPergunta() {
     mostraAlternativas();
 }
 
-
 function mostraAlternativas() {
     for (const alternativa of perguntaAtual.alternativas) {
         const botaoAlternativas = document.createElement("button");
@@ -47,16 +46,16 @@ function mostraAlternativas() {
     }
 }
 
-function respostaSelecionada(opcaoSelecionada){
-        const afirmacoes = aleatorio(opcaoSelecionada.afirmacao);
-        historiaFinal += afirmacoes + " ";
-        if(opcaoSelecionada.proxima !== undefined){
-            atual = opcaoSelecionada.proxima;
-        } else {
-            mostraResultado();
-            return;
-        }
-        mostraPergunta();
+function respostaSelecionada(opcaoSelecionada) {
+    const afirmacoes = aleatorio(opcaoSelecionada.afirmacao);
+    historiaFinal += afirmacoes + " ";
+    if (opcaoSelecionada.proxima !== undefined) {
+        atual = opcaoSelecionada.proxima;
+    } else {
+        mostraResultado();
+        return;
+    }
+    mostraPergunta();
 }
 
 function mostraResultado() {
@@ -64,19 +63,18 @@ function mostraResultado() {
     textoResultado.textContent = historiaFinal;
     caixaAlternativas.textContent = "";
     caixaResultado.classList.add("mostrar");
-    botaoJogarNovamente.addEventListener("click", jogaNovamente());
+    botaoJogarNovamente.addEventListener("click", jogaNovamente);
 }
 
-function jogaNovamente(){
+function jogaNovamente() {
     atual = 0;
-    caixaResultado.classList.remove("mostrar");
     historiaFinal = "";
+    caixaResultado.classList.remove("mostrar");
     mostraPergunta();
 }
 
-
-function substituiNome(){
-    for(const pergunta of perguntas){
+function substituiNome() {
+    for (const pergunta of perguntas) {
         pergunta.enunciado = pergunta.enunciado.replace(/você/g, nome);
     }
 }
